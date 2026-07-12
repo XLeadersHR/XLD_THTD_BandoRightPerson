@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bản đồ toàn cảnh ứng viên - Khung kiến thức | XLEADER ACADEMY</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#C22620;--gold:#D4AF37;--ink:#1A1A1A;--gray:#595959;--lgray:#F2F2F2}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Aptos Display','Segoe UI',Arial,sans-serif;background:#FFFFFF;color:var(--ink);padding:0 0 40px}
+.wrap{max-width:1360px;margin:0 auto;padding:0 32px}
+h1,h2,h3,.os{font-family:'Oswald',sans-serif}
+
+/* header */
+.hero{background:linear-gradient(135deg,#A81E19 0%,var(--red) 55%,#D93832 100%);color:#fff;padding:38px 0 30px;margin-bottom:34px}
+.hero .brand{font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-family:'Oswald',sans-serif;font-weight:600;margin-bottom:12px}
+.hero h1{font-size:38px;font-weight:700;text-transform:uppercase;line-height:1.2}
+.hero p{margin-top:12px;font-size:16px;color:rgba(255,255,255,.9);max-width:900px}
+
+/* layer band */
+.layer{display:grid;grid-template-columns:190px 1fr;gap:22px;margin-bottom:6px}
+.layer-tag{border-left:6px solid var(--gold);padding:10px 14px;background:var(--lgray)}
+.layer-tag .no{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+.layer-tag h2{font-size:19px;font-weight:600;text-transform:uppercase;line-height:1.25;margin-top:4px}
+.layer-tag .sub{font-size:12.5px;color:var(--gray);margin-top:6px;line-height:1.45}
+.cards{display:grid;gap:14px}
+.cards.c4{grid-template-columns:repeat(4,1fr)}
+.cards.c1{grid-template-columns:1fr}
+.card{border:1px solid #E2E2E2;border-top:4px solid var(--gold);padding:14px 16px;background:#fff}
+.card.red{border-top-color:var(--red)}
+.card h3{font-size:15px;font-weight:600;text-transform:uppercase;color:var(--red);line-height:1.3}
+.card .role{display:inline-block;font-family:'Oswald',sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:#fff;padding:3px 9px;margin:8px 0}
+.card .role.gold{background:var(--gold);color:var(--ink)}
+.card p{font-size:12.8px;color:var(--gray);line-height:1.5}
+.card .sig{margin-top:8px;font-size:12px;color:var(--ink);line-height:1.5}
+.card .sig b{color:var(--red)}
+
+/* connector */
+.connector{display:grid;grid-template-columns:190px 1fr;gap:22px;margin:10px 0 16px}
+.connector .line{display:flex;align-items:center;gap:14px;justify-content:center}
+.connector .arrow{font-size:26px;color:var(--gold);font-weight:700}
+.connector .lbl{font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);background:var(--lgray);padding:5px 16px}
+
+/* tầng 3 fit */
+.fitbox{border:1px solid #E2E2E2;padding:18px 20px;background:#fff;border-top:4px solid var(--red)}
+.fitbox h3{font-size:15px;font-weight:600;text-transform:uppercase;color:var(--ink);margin-bottom:12px}
+.fits{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.fit{background:linear-gradient(160deg,#A81E19,var(--red));color:#fff;padding:12px 14px}
+.fit .os{font-size:14px;font-weight:600;text-transform:uppercase;color:var(--gold)}
+.fit p{font-size:12.2px;color:rgba(255,255,255,.92);margin-top:6px;line-height:1.45}
+
+/* outcomes */
+.outcomes{display:flex;align-items:center;gap:10px;margin-top:4px}
+.oc{flex:1;text-align:center;border:1px solid #E2E2E2;border-bottom:4px solid var(--gold);padding:14px 10px}
+.oc .os{font-size:15px;font-weight:600;text-transform:uppercase;color:var(--red)}
+.oc p{font-size:11.8px;color:var(--gray);margin-top:5px;line-height:1.4}
+.oarr{font-size:24px;color:var(--gold);font-weight:700}
+
+/* workflow */
+.wf{margin-top:40px}
+.wf h2{font-size:24px;font-weight:700;text-transform:uppercase;margin-bottom:6px}
+.wf h2 span{color:var(--red)}
+.wf .note{font-size:13px;color:var(--gray);margin-bottom:18px}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.step{position:relative;border:1px solid #E2E2E2;padding:16px 16px 14px;background:#fff}
+.step:not(:last-child)::after{content:"";position:absolute;right:-9px;top:50%;transform:translateY(-50%) rotate(45deg);width:16px;height:16px;background:var(--gold);z-index:2}
+.step .no{font-family:'Oswald',sans-serif;font-size:26px;font-weight:700;color:var(--gold);line-height:1}
+.step h3{font-size:13.5px;font-weight:600;text-transform:uppercase;color:var(--ink);margin:8px 0 6px;line-height:1.3}
+.step p{font-size:11.8px;color:var(--gray);line-height:1.5}
+
+
+/* principles */
+.prin{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pr{border-left:5px solid var(--gold);background:#FBF6E4;padding:14px 18px}
+.pr h3{font-size:13.5px;font-weight:600;text-transform:uppercase;color:var(--ink);margin-bottom:6px}
+.pr p{font-size:12.8px;color:var(--gray);line-height:1.55}
+
+footer{margin-top:44px;border-top:1px solid #E2E2E2;padding-top:14px;display:flex;justify-content:space-between;font-family:'Oswald',sans-serif;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray)}
+footer .b{color:var(--red);font-weight:600}
+@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+
+<div class="hero"><div class="wrap">
+  <div class="brand">XLEADER ACADEMY</div>
+  <h1>Bản đồ toàn cảnh ứng viên</h1>
+  <p>Toàn bộ các mảnh tác động đến hành vi làm việc, hiệu suất và sự gắn kết của một cá nhân với tổ chức — cấu trúc 3 tầng theo trục thời gian và độ khả biến, kết thành workflow phỏng vấn 5 bước.</p>
+</div></div>
+
+<div class="wrap">
+
+<!-- TẦNG 1 -->
+<div class="layer">
+  <div class="layer-tag">
+    <div class="no">Tầng 1</div>
+    <h2>Gốc hình thành</h2>
+    <div class="sub">Bộ gen quá khứ: hình thành trước khi gặp tổ chức, gần như không thay đổi được. Phần chìm của tảng băng nhưng dự báo mạnh nhất.</div>
+  </div>
+  <div class="cards c4">
+    <div class="card">
+      <h3>Gia đình gốc</h3>
+      <div class="role gold">Family</div>
+      <p>Nền nếp, hình mẫu cha mẹ, hoàn cảnh kinh tế tuổi thơ.</p>
+      <div class="sig"><b>Hình thành:</b> đạo đức làm việc, quan hệ với tiền, với quyền lực, sức chịu áp lực.</div>
+    </div>
+    <div class="card">
+      <h3>Môi trường học tập</h3>
+      <div class="role gold">Education</div>
+      <p>Trường lớp, người thầy ảnh hưởng nhất, cách vượt khó khi học.</p>
+      <div class="sig"><b>Hình thành:</b> kỷ luật tư duy, cách học, chuẩn mực chất lượng.</div>
+    </div>
+    <div class="card">
+      <h3>Tính cách</h3>
+      <div class="role gold">Character</div>
+      <p>Khuynh hướng ổn định: tận tâm, chính trực, bền bỉ.</p>
+      <div class="sig"><b>Tín hiệu:</b> phản ứng khi thất bại, khi xung đột, khi không ai giám sát.</div>
+    </div>
+    <div class="card">
+      <h3>Lịch sử nghề nghiệp</h3>
+      <div class="role gold">Career History</div>
+      <p>Pattern hành vi đã kiểm chứng qua từng công ty.</p>
+      <div class="sig"><b>Tín hiệu:</b> lý do rời đi lặp lại, điều thích nhất lặp lại, quan hệ với sếp cũ.</div>
+    </div>
+  </div>
+</div>
+
+<div class="connector"><div></div><div class="line"><span class="arrow">↓</span><span class="lbl">Sinh ra</span><span class="arrow">↓</span></div></div>
+
+<!-- TẦNG 2 -->
+<div class="layer">
+  <div class="layer-tag">
+    <div class="no">Tầng 2</div>
+    <h2>Động lực vận hành</h2>
+    <div class="sub">Khung 4 mảnh khai vấn: sản phẩm của Tầng 1, vận hành ở hiện tại và hướng về tương lai. Khai thác bằng coaching conversation.</div>
+  </div>
+  <div class="cards c4">
+    <div class="card red">
+      <h3>Giá trị (Values)</h3>
+      <div class="role">Bộ lọc</div>
+      <p>Nguyên tắc vận hành bên trong, điều không nhân nhượng.</p>
+      <div class="sig"><b>Quyết định:</b> hai bên có hợp nhau không.</div>
+    </div>
+    <div class="card red">
+      <h3>Tầm nhìn (Vision)</h3>
+      <div class="role">Lực kéo</div>
+      <p>Bức tranh tương lai: vai trò, thu nhập, cách làm việc, learning curve.</p>
+      <div class="sig"><b>Quyết định:</b> công ty có nằm trên đường đi của họ không.</div>
+    </div>
+    <div class="card red">
+      <h3>Điểm đau (Pain)</h3>
+      <div class="role">Lực đẩy</div>
+      <p>Trở ngại và bức xúc hiện tại: năng lượng của sự thay đổi.</p>
+      <div class="sig"><b>Quyết định:</b> vì sao họ rời chỗ cũ; rủi ro counter-offer.</div>
+    </div>
+    <div class="card red">
+      <h3>Môi trường (Environment)</h3>
+      <div class="role">Điều kiện</div>
+      <p>Điều kiện bắt buộc để năng lực chuyển thành kết quả.</p>
+      <div class="sig"><b>Quyết định:</b> họ có phát huy được ở chỗ mình không.</div>
+    </div>
+  </div>
+</div>
+
+<div class="connector"><div></div><div class="line"><span class="arrow">↓</span><span class="lbl">Gặp gỡ tổ chức</span><span class="arrow">↓</span></div></div>
+
+<!-- TẦNG 3 -->
+<div class="layer">
+  <div class="layer-tag">
+    <div class="no">Tầng 3</div>
+    <h2>Khớp nối với tổ chức</h2>
+    <div class="sub">Phía công ty: công việc thực tế, sếp trực tiếp, đội ngũ, cơ chế, văn hóa. Khớp nối đo bằng 4 loại fit.</div>
+  </div>
+  <div class="fitbox">
+    <h3>Bốn loại fit cần đối chiếu</h3>
+    <div class="fits">
+      <div class="fit"><div class="os">P-O Fit</div><p>Giá trị cá nhân khớp giá trị và văn hóa tổ chức.</p></div>
+      <div class="fit"><div class="os">P-J Fit</div><p>Động lực và năng lực khớp thiết kế công việc thực tế.</p></div>
+      <div class="fit"><div class="os">P-S Fit</div><p>Con người khớp phong cách người sếp trực tiếp.</p></div>
+      <div class="fit"><div class="os">P-G Fit</div><p>Cá nhân khớp đội ngũ sẽ làm việc cùng hàng ngày.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="connector"><div></div><div class="line"><span class="arrow">↓</span><span class="lbl">Tạo ra</span><span class="arrow">↓</span></div></div>
+
+<!-- OUTCOMES -->
+<div class="layer">
+  <div class="layer-tag">
+    <div class="no">Đầu ra</div>
+    <h2>Chuỗi kết quả</h2>
+    <div class="sub">Chuỗi nhân quả: mức độ khớp quyết định hành vi, hành vi tạo hiệu suất, hiệu suất được nuôi dưỡng thành gắn kết.</div>
+  </div>
+  <div class="outcomes">
+    <div class="oc"><div class="os">Mức độ Fit</div><p>Tổng hợp 4 loại khớp nối</p></div>
+    <div class="oarr">→</div>
+    <div class="oc"><div class="os">Hành vi làm việc</div><p>Cách hành xử hàng ngày trong tổ chức</p></div>
+    <div class="oarr">→</div>
+    <div class="oc"><div class="os">Hiệu suất</div><p>Kết quả tạo ra, đặc biệt ở vai trò phức tạp cao</p></div>
+    <div class="oarr">→</div>
+    <div class="oc"><div class="os">Gắn kết</div><p>Ở lại, cống hiến, lan tỏa</p></div>
+  </div>
+</div>
+
+<!-- WORKFLOW -->
+<div class="wf">
+  <h2>Workflow phỏng vấn <span>5 bước theo tầng</span></h2>
+  <div class="note">Đi từ quá khứ đến tương lai, từ con người đến tổ chức: mỗi bước mở một tầng của bản đồ.</div>
+  <div class="steps">
+    <div class="step"><div class="no">1</div><h3>Resume Review</h3><p>Thu bằng chứng quá khứ theo từng công ty: thích nhất, không thích nhất, sếp, lý do rời đi.</p></div>
+    <div class="step"><div class="no">2</div><h3>Khám phá gốc</h3><p>Chuyện hình thành con người: gia đình, học tập, tính cách. Hỏi như câu chuyện đời, không như điều tra.</p></div>
+    <div class="step"><div class="no">3</div><h3>Khai vấn 4 mảnh</h3><p>Giá trị, Tầm nhìn, Điểm đau, Môi trường: mã hóa theo danh mục MECE, chấm đèn từng mảnh.</p></div>
+    <div class="step"><div class="no">4</div><h3>Đối chiếu 4 fit</h3><p>Soi kết quả vào thực tế tổ chức: P-O, P-J, P-S, P-G. Trung thực về điều công ty cam kết được.</p></div>
+    <div class="step"><div class="no">5</div><h3>Chân dung và kết luận</h3><p>Dựng chân dung toàn cảnh, kết luận kèm bằng chứng, kế hoạch đáp ứng 90 ngày trong offer.</p></div>
+  </div>
+</div>
+
+<!-- PRINCIPLES -->
+<div class="prin">
+  <div class="pr">
+    <h3>Nguyên tắc 80/20 theo vị trí</h3>
+    <p>Không đào sâu mọi tầng với mọi vị trí. Vị trí càng cao, độ phức tạp càng lớn thì càng phải đào Tầng 1: tính cách và gốc hình thành dự báo hành vi lãnh đạo mạnh hơn kỹ năng. Vị trí phổ thông: tập trung Tầng 2 và P-J fit là đủ.</p>
+  </div>
+  <div class="pr">
+    <h3>Ranh giới đạo đức của Tầng 1</h3>
+    <p>Hỏi Gia đình và Học tập như câu chuyện hình thành con người, tuyệt đối không như điều tra đời tư. Vùng cấm: tình trạng hôn nhân, kế hoạch sinh con, tôn giáo, sức khỏe. Phạm vùng cấm vừa vi phạm chuẩn mực vừa phá hủy niềm tin của cuộc khai vấn.</p>
+  </div>
+</div>
+
+<footer>
+  <span class="b">XLEADER ACADEMY</span>
+  <span>Bản đồ toàn cảnh ứng viên - Khung kiến thức</span>
+  <span>Tư duy Quản trị gốc</span>
+</footer>
+
+</div>
+</body>
+</html>
